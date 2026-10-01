@@ -4,16 +4,18 @@ import { Navbar } from './Navbar'
 import { Footer } from './Footer'
 import { site } from '../../content/site'
 import { OrganizationSchema } from '../seo/StructuredData'
+import { useReveal } from '../../hooks/useReveal'
 
 export function Layout() {
   const { pathname } = useLocation()
   useEffect(() => window.scrollTo(0, 0), [pathname])
+  useReveal()
 
   return (
     <div className="flex min-h-screen flex-col">
       <OrganizationSchema />
       <Navbar />
-      <main className="flex-1"><Outlet /></main>
+      <main className="flex-1"><div key={pathname} className="page-in"><Outlet /></div></main>
       <Footer />
       <a
         href={`https://wa.me/${site.whatsapp}?text=${encodeURIComponent('Hi, I would like to know more about training at Golden Trigger Rifle Club.')}`}

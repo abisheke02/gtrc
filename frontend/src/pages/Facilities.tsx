@@ -10,9 +10,9 @@ export default function Facilities() {
       <Seo title="Range & Facilities" path="/facilities" description="10m air rifle and air pistol shooting range in Gerugambakkam, Chennai, with club equipment, electronic scoring and certified range officers." />
       <PageHeader eyebrow="Facilities" title="The range" intro="A dedicated, supervised 10m shooting range designed for focus, consistency and safety." />
       <Section>
-        <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+        <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3" data-reveal="stagger">
           {facilities.map((f) => (
-            <div key={f.title} className="overflow-hidden rounded-xl border border-line bg-ink-2">
+            <div key={f.title} className="lift overflow-hidden rounded-xl border border-line bg-ink-2">
               {f.image && <div className="aspect-video"><Photo src={f.image} alt={f.title} /></div>}
               <div className="p-6">
                 <h2 className="text-lg text-gold">{f.title}</h2>

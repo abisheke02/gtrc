@@ -3,7 +3,7 @@ import type { ReactNode } from 'react'
 
 type Variant = 'gold' | 'outline' | 'ghost'
 const styles: Record<Variant, string> = {
-  gold: 'bg-gold text-ink hover:bg-gold-2',
+  gold: 'btn-shine bg-gold text-ink hover:bg-gold-2',
   outline: 'border border-gold text-gold hover:bg-gold hover:text-ink',
   ghost: 'text-paper hover:text-gold',
 }

@@ -10,9 +10,9 @@ export default function Coaches() {
       <Seo title="Our Coaches" path="/coaches" description="Meet the certified shooting coaches at Golden Trigger Rifle Club, Chennai." />
       <PageHeader eyebrow="Coaches" title="Meet the coaches" intro="Certified instructors who give every shooter personal guidance, from safe handling to match-day routines." />
       <Section>
-        <div className="grid gap-6 md:grid-cols-3">
+        <div className="grid gap-6 md:grid-cols-3" data-reveal="stagger">
           {coaches.map((c) => (
-            <article key={c.role + c.name} className="overflow-hidden rounded-xl border border-line bg-ink-2">
+            <article key={c.role + c.name} className="lift overflow-hidden rounded-xl border border-line bg-ink-2">
               <div className="aspect-[4/3]"><Photo src={c.image} alt={c.name} label="Photo coming soon" /></div>
               <div className="p-6">
                 <h2 className="text-xl">{c.name}</h2>

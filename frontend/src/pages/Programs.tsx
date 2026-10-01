@@ -13,9 +13,9 @@ export default function Programs() {
       <Seo title="Training Programmes" path="/programs" description="10m Air Rifle and Air Pistol training programmes in Chennai for beginners, children and competitive shooters. Book online." />
       <PageHeader eyebrow="Programmes" title="Training programmes" intro="Every programme includes a safety certification, club equipment for beginners, and small batches so the coach can watch every shot." />
       <Section eyebrow="The disciplines" title="Olympic precision sport">
-        <div className="grid gap-6 md:grid-cols-2">
+        <div className="grid gap-6 md:grid-cols-2" data-reveal="stagger">
           {disciplines.map((d) => (
-            <div key={d.name} className="rounded-xl border border-line bg-ink-2 p-6">
+            <div key={d.name} className="lift rounded-xl border border-line bg-ink-2 p-6">
               <h2 className="text-2xl text-gold">{d.name}</h2>
               <p className="mt-3 text-mute">{d.text}</p>
             </div>
@@ -23,9 +23,9 @@ export default function Programs() {
         </div>
       </Section>
       <Section eyebrow="Courses & fees" title="Choose a programme" className="!pt-0">
-        <div className="space-y-6">
+        <div className="space-y-6" data-reveal="stagger">
           {programs.map((p) => (
-            <article key={p.slug} className="grid gap-6 rounded-xl border border-line bg-ink-2 p-6 md:grid-cols-[1fr_auto] md:items-center">
+            <article key={p.slug} className="lift grid gap-6 rounded-xl border border-line bg-ink-2 p-6 md:grid-cols-[1fr_auto] md:items-center">
               <div>
                 <p className="text-xs font-semibold uppercase tracking-widest text-gold">{p.discipline} · {p.level}</p>
                 <h2 className="mt-1 text-2xl">{p.name}</h2>
@@ -47,7 +47,7 @@ export default function Programs() {
         </div>
       </Section>
       <Section eyebrow="Your pathway" title="From first shot to nationals" className="bg-ink-2">
-        <ol className="grid gap-4 md:grid-cols-5">
+        <ol className="grid gap-4 md:grid-cols-5" data-reveal="stagger">
           {pathway.map((p, i) => (
             <li key={p.step} className="rounded-xl border border-line bg-ink p-5">
               <span className="font-display text-3xl text-gold">{String(i + 1).padStart(2, '0')}</span>

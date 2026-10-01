@@ -18,9 +18,9 @@ export default function Events() {
       <PageHeader eyebrow="Events" title="Events & competitions" intro="Club matches, holiday camps and competition preparation. Register online to save your spot." />
       <Section title="Upcoming">
         {upcoming.length === 0 && <p className="text-mute">No upcoming events right now. Follow us on Instagram for announcements.</p>}
-        <div className="grid gap-6 md:grid-cols-2">
+        <div className="grid gap-6 md:grid-cols-2" data-reveal="stagger">
           {upcoming.map((e) => (
-            <article key={e.slug} className="flex flex-col rounded-xl border border-line bg-ink-2 p-6">
+            <article key={e.slug} className="lift flex flex-col rounded-xl border border-line bg-ink-2 p-6">
               <p className="text-sm font-semibold text-gold">{longDate(e.date)}</p>
               <h3 className="mt-1 text-2xl">{e.name}</h3>
               <p className="mt-1 text-sm text-mute">{e.location}</p>

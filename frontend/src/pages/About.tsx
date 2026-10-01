@@ -16,7 +16,7 @@ export default function About() {
       <Seo title="About Us" path="/about" description="About Golden Trigger Rifle Club: a professional shooting range and academy in Gerugambakkam, Chennai, focused on safety, discipline and excellence." />
       <PageHeader eyebrow="About us" title="Where the next champions start" intro="Golden Trigger is a professional shooting range and academy in Gerugambakkam, Chennai, built to develop young and adult shooters with world-class discipline." />
       <Section>
-        <div className="grid gap-12 lg:grid-cols-2">
+        <div className="grid gap-12 lg:grid-cols-2" data-reveal="stagger">
           <div className="space-y-4 text-mute">
             <h2 className="text-3xl text-paper">Our story</h2>
             <p>
@@ -35,9 +35,9 @@ export default function About() {
             </p>
             <p className="text-sm italic">[Founding year, founder/coach names and affiliations to be added: confirm with the club.]</p>
           </div>
-          <div className="grid gap-4">
+          <div className="grid gap-4" data-reveal="stagger">
             {values.map((v) => (
-              <div key={v.t} className="rounded-xl border border-line bg-ink-2 p-6">
+              <div key={v.t} className="lift rounded-xl border border-line bg-ink-2 p-6">
                 <h3 className="text-xl text-gold">{v.t}</h3>
                 <p className="mt-2 text-sm text-mute">{v.d}</p>
               </div>
@@ -46,7 +46,7 @@ export default function About() {
         </div>
       </Section>
       <Section eyebrow="Why shooting" title="More than a sport">
-        <ul className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+        <ul className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3" data-reveal="stagger">
           {benefits.map((b) => (
             <li key={b} className="flex gap-3 rounded-xl border border-line bg-ink-2 p-5 text-mute"><span className="text-gold">◎</span>{b}</li>
           ))}

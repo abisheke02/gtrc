@@ -11,9 +11,9 @@ export default function Gallery() {
       <Seo title="Gallery" path="/gallery" description="Photos from training sessions, competitions and camps at Golden Trigger Rifle Club, Chennai." />
       <PageHeader eyebrow="Gallery" title="Life at the range" intro="Training sessions, match days, camps and medal moments." />
       <Section>
-        <div className="grid grid-cols-2 gap-3 sm:gap-4 md:grid-cols-3">
+        <div className="grid grid-cols-2 gap-3 sm:gap-4 md:grid-cols-3" data-reveal="stagger">
           {gallery.map((g, i) => (
-            <figure key={g.caption + i} className="aspect-square overflow-hidden rounded-lg border border-line">
+            <figure key={g.caption + i} className="group aspect-square overflow-hidden rounded-lg border border-line [&_img]:transition-transform [&_img]:duration-700 hover:[&_img]:scale-110">
               <Photo src={g.image} alt={g.caption} />
             </figure>
           ))}

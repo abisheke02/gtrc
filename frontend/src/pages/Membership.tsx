@@ -11,7 +11,7 @@ export default function Membership() {
       <Seo title="Membership & Fees" path="/membership" description="Membership plans and fees at Golden Trigger Rifle Club, Chennai. Monthly, quarterly and annual range access. Pay online." />
       <PageHeader eyebrow="Membership" title="Membership & fees" intro="For shooters who have finished a programme and want regular range time. Choose a plan and pay securely online." />
       <Section>
-        <div className="grid gap-6 md:grid-cols-3">
+        <div className="grid gap-6 md:grid-cols-3" data-reveal="stagger">
           {plans.map((p) => (
             <PriceCard key={p.slug} type="PLAN" slug={p.slug} title={p.name} price={p.priceInr} period={p.period} bullets={p.features} featured={p.featured} cta="Join & Pay" />
           ))}
