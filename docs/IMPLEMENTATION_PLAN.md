@@ -1,7 +1,7 @@
 # Implementation Plan — GTRC Website
 
 ## Stack (see DECISIONS.md)
-- **website/**: Next.js + TypeScript + Tailwind. Public pages are statically generated (SSG/ISR) for SEO.
+- **frontend/**: React 19 + Vite + TypeScript + Tailwind (changed from Next.js on 2026-10-01; see DECISIONS.md).
 - **backend/**: Node + Express + TypeScript, PostgreSQL + Prisma.
 - **Payments**: Razorpay (India: UPI, cards, netbanking).
 - **Admin auth**: email + password (bcrypt) with an httpOnly JWT cookie. Admin only, no customer accounts in v1.

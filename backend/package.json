@@ -1,0 +1,42 @@
+{
+  "name": "gtrc-backend",
+  "private": true,
+  "version": "0.1.0",
+  "type": "module",
+  "scripts": {
+    "dev": "tsx watch src/server.ts",
+    "build": "tsc",
+    "start": "node dist/server.js",
+    "typecheck": "tsc --noEmit",
+    "db:migrate": "prisma migrate dev",
+    "db:deploy": "prisma migrate deploy",
+    "db:seed": "node --env-file=.env --import tsx prisma/seed.ts",
+    "db:studio": "prisma studio",
+    "test": "node --import tsx --test src/**/*.test.ts"
+  },
+  "dependencies": {
+    "@prisma/client": "^6.19.3",
+    "bcryptjs": "^3.0.3",
+    "cookie-parser": "^1.4.7",
+    "cors": "^2.8.6",
+    "dotenv": "^18.0.5",
+    "express": "^5.2.1",
+    "express-rate-limit": "^8.7.0",
+    "helmet": "^8.3.0",
+    "jsonwebtoken": "^9.0.3",
+    "nodemailer": "^10.0.13",
+    "razorpay": "^2.9.8",
+    "zod": "^4.6.5"
+  },
+  "devDependencies": {
+    "@types/cookie-parser": "^1.4.10",
+    "@types/cors": "^2.8.19",
+    "@types/express": "^5.0.6",
+    "@types/jsonwebtoken": "^9.0.10",
+    "@types/node": "^26.6.3",
+    "@types/nodemailer": "^8.0.2",
+    "prisma": "^6.19.3",
+    "tsx": "^4.23.15",
+    "typescript": "^5.9.3"
+  }
+}

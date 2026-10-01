@@ -1,0 +1,91 @@
+{
+  "_note": "PLACEHOLDER fees and schedules: confirm with the club. Used as the DB seed (backend) and the offline fallback (frontend). After launch, edit these from the admin panel.",
+  "programs": [
+    {
+      "slug": "air-rifle-beginner",
+      "name": "Air Rifle: Beginner",
+      "discipline": "10m Air Rifle",
+      "level": "Beginner",
+      "ageGroup": "8 years and above",
+      "duration": "1 month · 12 sessions",
+      "priceInr": 5000,
+      "summary": "Safety, stance, breathing and trigger control. No experience needed. All equipment is provided.",
+      "highlights": ["Range safety certification", "Club rifle and pellets included", "Small batches, max 6 per coach"]
+    },
+    {
+      "slug": "air-rifle-advanced",
+      "name": "Air Rifle: Advanced",
+      "discipline": "10m Air Rifle",
+      "level": "Advanced",
+      "ageGroup": "10 years and above",
+      "duration": "1 month · 16 sessions",
+      "priceInr": 7500,
+      "summary": "Competition-focused training: shot analysis, match routines and preparation for state and national events.",
+      "highlights": ["Electronic target scoring", "Match simulation", "Competition entry guidance"]
+    },
+    {
+      "slug": "air-pistol",
+      "name": "Air Pistol",
+      "discipline": "10m Air Pistol",
+      "level": "All levels",
+      "ageGroup": "10 years and above",
+      "duration": "1 month · 12 sessions",
+      "priceInr": 6000,
+      "summary": "One-hand precision shooting: grip, sight alignment and follow-through, coached step by step.",
+      "highlights": ["Club pistol provided", "Personalised drills", "Progress report every month"]
+    },
+    {
+      "slug": "trial-session",
+      "name": "Trial Session",
+      "discipline": "10m Air Rifle / Pistol",
+      "level": "First-timers",
+      "ageGroup": "8 years and above",
+      "duration": "1 session · 60 minutes",
+      "priceInr": 500,
+      "summary": "Try shooting with a certified coach before you commit. Includes a safety briefing and 30 supervised shots.",
+      "highlights": ["Safety briefing", "30 supervised shots", "Coach assessment"]
+    }
+  ],
+  "plans": [
+    {
+      "slug": "monthly",
+      "name": "Monthly Membership",
+      "period": "per month",
+      "priceInr": 3000,
+      "features": ["Open range practice (8 slots/month)", "Equipment on request", "Member rates for events"]
+    },
+    {
+      "slug": "quarterly",
+      "name": "Quarterly Membership",
+      "period": "per 3 months",
+      "priceInr": 8000,
+      "features": ["Open range practice (30 slots)", "1 coach review session per month", "Member rates for events"],
+      "featured": true
+    },
+    {
+      "slug": "annual",
+      "name": "Annual Membership",
+      "period": "per year",
+      "priceInr": 28000,
+      "features": ["Unlimited range practice (by booking)", "Priority slots for competition prep", "Free entry to club matches"]
+    }
+  ],
+  "events": [
+    {
+      "slug": "club-championship-2026",
+      "name": "GTRC Club Championship 2026",
+      "date": "2026-11-15",
+      "location": "Golden Trigger Range, Gerugambakkam",
+      "priceInr": 1000,
+      "summary": "Open club match in 10m Air Rifle and Air Pistol, with Sub-Youth, Youth and Open categories."
+    },
+    {
+      "slug": "summer-camp-2027",
+      "name": "Summer Shooting Camp 2027",
+      "date": "2027-04-20",
+      "location": "Golden Trigger Range, Gerugambakkam",
+      "priceInr": 6500,
+      "summary": "Two-week holiday camp for children aged 8 to 16, covering fundamentals, fun matches and a certificate."
+    }
+  ]
+}

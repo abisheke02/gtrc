@@ -1,0 +1,97 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+enum ItemType {
+  PROGRAM
+  PLAN
+  EVENT
+}
+
+enum BookingStatus {
+  PENDING
+  PAID
+  FAILED
+  REFUNDED
+}
+
+enum EnquiryStatus {
+  NEW
+  CONTACTED
+  CLOSED
+}
+
+model AdminUser {
+  id           String   @id @default(cuid())
+  email        String   @unique
+  name         String
+  passwordHash String
+  createdAt    DateTime @default(now())
+}
+
+/// Programmes, membership plans and events. `data` holds display-only fields
+/// (summary, highlights, date…); name/price/active are columns so admin can edit them.
+model CatalogItem {
+  id        String   @id @default(cuid())
+  type      ItemType
+  slug      String
+  name      String
+  priceInr  Int
+  active    Boolean  @default(true)
+  sortOrder Int      @default(0)
+  data      Json     @default("{}")
+  updatedAt DateTime @updatedAt
+
+  @@unique([type, slug])
+}
+
+model Booking {
+  id                String        @id @default(cuid())
+  itemType          ItemType
+  itemSlug          String
+  itemName          String
+  amountInr         Int
+  status            BookingStatus @default(PENDING)
+  name              String
+  email             String
+  phone             String
+  participantName   String
+  participantAge    Int?
+  guardianName      String?
+  preferredDate     DateTime?
+  notes             String?
+  razorpayOrderId   String?       @unique
+  razorpayPaymentId String?
+  paidAt            DateTime?
+  createdAt         DateTime      @default(now())
+  updatedAt         DateTime      @updatedAt
+
+  @@index([status, createdAt])
+}
+
+model Enquiry {
+  id        String        @id @default(cuid())
+  name      String
+  phone     String
+  email     String?
+  subject   String?
+  message   String
+  status    EnquiryStatus @default(NEW)
+  createdAt DateTime      @default(now())
+}
+
+model AuditLog {
+  id         String   @id @default(cuid())
+  adminEmail String
+  action     String
+  section    String
+  targetId   String?
+  summary    String
+  ipAddress  String?
+  createdAt  DateTime @default(now())
+}
