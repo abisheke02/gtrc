@@ -8,6 +8,7 @@
 |---|---|---|
 | Name | Golden Trigger Rifle Club / Golden Trigger Shooting Academy | Confirm which name is the brand |
 | Address | Sports Club Campus, 10 Anna Street, Periyapanicheri, Gerugambakkam, Chennai, Tamil Nadu | PIN shows as both **600122** and **600128**. Confirm which is correct |
+| Email | goldentriggerriffleclub@gmail.com | Club's official email (given by Abishek). Used as the contact address, admin login, and Razorpay/notification email |
 | Phone | +91 96777 80774, +91 96777 52774 | Confirm which is primary / WhatsApp |
 | Instagram | [@golden_trigger_shooting](https://www.instagram.com/golden_trigger_shooting/) (probable) | Confirm |
 | Facebook | [Golden Trigger Shooting Academy](https://www.facebook.com/people/Golden-Trigger-Shooting-Academy/61576635413643/) | Confirm |
