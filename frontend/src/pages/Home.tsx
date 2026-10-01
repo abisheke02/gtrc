@@ -2,7 +2,7 @@ import { Seo } from '../components/seo/Seo'
 import { Button } from '../components/common/Button'
 import { Section } from '../components/common/Section'
 import { PriceCard } from '../components/common/PriceCard'
-import { site, stats, testimonials, facilities } from '../content/site'
+import { site, stats, testimonials, facilities, achievements } from '../content/site'
 import { useCatalog } from '../hooks/useCatalog'
 
 export default function Home() {
@@ -18,8 +18,8 @@ export default function Home() {
               Train with <span className="text-gold">precision.</span><br />Compete with confidence.
             </h1>
             <p className="mt-6 max-w-xl text-lg text-mute">
-              Professional 10m Air Rifle and Air Pistol coaching for children and adults. Certified coaches,
-              a strict safety culture, and a clear path from your first shot to state and national competition.
+              A professional shooting range in Gerugambakkam, Chennai. Expert 10m Air Rifle and Pistol coaching for
+              beginners and advanced shooters. With us, your child could be the next champion shooter.
             </p>
             <div className="mt-8 flex flex-wrap gap-3">
               <Button to="/book?type=PROGRAM&item=trial-session">Book a Trial Session</Button>
@@ -69,16 +69,30 @@ export default function Home() {
         <div className="mt-8"><Button to="/facilities" variant="ghost">See all facilities →</Button></div>
       </Section>
 
-      <Section eyebrow="Testimonials" title="What our shooters say">
+      <Section eyebrow="Achievements" title="Results that speak">
         <div className="grid gap-6 md:grid-cols-3">
-          {testimonials.map((t) => (
-            <figure key={t.quote} className="rounded-xl border border-line bg-ink-2 p-6">
-              <blockquote className="text-paper/90">“{t.quote}”</blockquote>
-              <figcaption className="mt-4 text-sm text-gold">{t.name}</figcaption>
-            </figure>
+          {achievements.map((a) => (
+            <div key={a.detail} className="rounded-xl border border-line bg-ink-2 p-6">
+              <p className={`font-display text-3xl ${a.result === 'Gold' ? 'text-gold' : 'text-paper/80'}`}>{a.result}</p>
+              <p className="mt-2 text-paper">{a.detail}</p>
+              <p className="text-sm text-mute">{a.event} {a.year}</p>
+            </div>
           ))}
         </div>
       </Section>
+
+      {testimonials.length > 0 && (
+        <Section eyebrow="Testimonials" title="What our shooters say" className="bg-ink-2">
+          <div className="grid gap-6 md:grid-cols-3">
+            {testimonials.map((t) => (
+              <figure key={t.quote} className="rounded-xl border border-line bg-ink p-6">
+                <blockquote className="text-paper/90">“{t.quote}”</blockquote>
+                <figcaption className="mt-4 text-sm text-gold">{t.name}</figcaption>
+              </figure>
+            ))}
+          </div>
+        </Section>
+      )}
 
       <section className="border-t border-line bg-gold text-ink">
         <div className="container-x flex flex-col items-start justify-between gap-6 py-12 sm:flex-row sm:items-center">

@@ -27,7 +27,12 @@ export default function About() {
               We train in 10m Air Rifle and Air Pistol, the Olympic disciplines that reward focus, consistency and calm
               more than strength. That makes shooting one of the few sports where a 10-year-old and a 50-year-old train side by side.
             </p>
-            <p className="text-sm italic">[Club history, founding year and affiliations to be added: confirm with the club.]</p>
+            <p>
+              We are committed to building a new generation of skilled, focused and disciplined shooters, with programmes
+              designed to sharpen precision, build mental strength and grow confidence. Our shooters won team gold in
+              both the men's and women's events, and silver in Master Men individual, at the Pondy Open 2025.
+            </p>
+            <p className="text-sm italic">[Founding year, founder/coach names and affiliations to be added: confirm with the club.]</p>
           </div>
           <div className="grid gap-4">
             {values.map((v) => (

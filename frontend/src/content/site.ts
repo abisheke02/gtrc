@@ -2,10 +2,12 @@
 // on 2026-10-01: confirm with the club (see docs/CLIENT_INFO.md).
 export const site = {
   name: 'Golden Trigger Rifle Club',
+  // Name used on Instagram, Facebook and the old website
+  alternateName: 'Golden Trigger Shooting Academy',
   shortName: 'GTRC',
   tagline: 'Precision. Discipline. Champions.',
   description:
-    'Golden Trigger Rifle Club is a professional shooting range and academy in Gerugambakkam, Chennai. Certified coaches train beginners and competitive shooters in 10m Air Rifle and Air Pistol.',
+    'Golden Trigger Rifle Club (Golden Trigger Shooting Academy) is a professional shooting range in Gerugambakkam, Chennai. Certified instructors train beginners and competitive shooters in 10m Air Rifle and Pistol. Team gold winners at the Pondy Open 2025.',
   url: import.meta.env.VITE_SITE_URL || 'https://example.com',
   email: 'goldentriggerriffleclub@gmail.com',
   phones: ['+91 96777 80774', '+91 96777 52774'],
@@ -42,11 +44,18 @@ export const nav = [
   { to: '/contact', label: 'Contact' },
 ]
 
+// Verified from the club's public posts (see docs/CLIENT_INFO.md).
 export const stats = [
-  { value: '10m', label: 'Air Rifle & Pistol lanes' },
-  { value: '1:6', label: 'Coach to shooter ratio' },
-  { value: '8+', label: 'Starting age (years)' },
-  { value: '100%', label: 'Supervised range time' },
+  { value: '2 Gold', label: 'Pondy Open 2025: men\'s & women\'s team' },
+  { value: '1 Silver', label: 'Pondy Open 2025: Master Men individual' },
+  { value: '10m', label: 'Air Rifle & Pistol training' },
+  { value: 'All levels', label: 'Beginner to competition' },
+]
+
+export const achievements = [
+  { year: '2025', event: 'Pondy Open', result: 'Gold', detail: "Women's Team" },
+  { year: '2025', event: 'Pondy Open', result: 'Gold', detail: "Men's Team" },
+  { year: '2025', event: 'Pondy Open', result: 'Silver', detail: 'Master Men Individual' },
 ]
 
 export const coaches = [
@@ -79,11 +88,8 @@ export const facilities = [
   { title: 'Easy to Reach', text: 'Located in Gerugambakkam, close to Porur and Kundrathur, with parking on campus.' },
 ]
 
-export const testimonials = [
-  { quote: 'My son started as a complete beginner. Within six months he was shooting in his first district match.', name: 'Parent of a junior shooter' },
-  { quote: 'Patient coaches, a strict safety culture, and real attention to technique.', name: 'Adult member' },
-  { quote: 'The trial session was the best way to start. Clear instructions and no pressure.', name: 'New member' },
-]
+// Testimonials: add real quotes from members (with their permission) before showing any on the site.
+export const testimonials: { quote: string; name: string }[] = []
 
 export const faqs = [
   { q: 'What age can my child start?', a: 'Children can start from 8 years old in the beginner programme. A parent or guardian must sign the consent form.' },

@@ -3,6 +3,7 @@ import { PageHeader } from '../components/layout/PageHeader'
 import { Section } from '../components/common/Section'
 import { Button } from '../components/common/Button'
 import { useCatalog } from '../hooks/useCatalog'
+import { achievements } from '../content/site'
 import { inr, longDate } from '../utils/format'
 
 export default function Events() {
@@ -32,13 +33,16 @@ export default function Events() {
           ))}
         </div>
       </Section>
-      {past.length > 0 && (
-        <Section title="Past events & results" className="bg-ink-2">
-          <ul className="space-y-3">
-            {past.map((e) => <li key={e.slug} className="text-mute"><span className="text-paper">{e.name}</span> · {longDate(e.date)}</li>)}
-          </ul>
-        </Section>
-      )}
+      <Section title="Past events & results" className="bg-ink-2">
+        <ul className="space-y-3">
+          {achievements.map((a) => (
+            <li key={a.detail} className="text-mute">
+              <span className={a.result === 'Gold' ? 'text-gold' : 'text-paper'}>{a.result}</span> · {a.detail} · {a.event} {a.year}
+            </li>
+          ))}
+          {past.map((e) => <li key={e.slug} className="text-mute"><span className="text-paper">{e.name}</span> · {longDate(e.date)}</li>)}
+        </ul>
+      </Section>
     </>
   )
 }

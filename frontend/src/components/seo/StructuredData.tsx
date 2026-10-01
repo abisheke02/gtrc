@@ -12,6 +12,7 @@ export function OrganizationSchema() {
         '@context': 'https://schema.org',
         '@type': ['SportsActivityLocation', 'SportsClub'],
         name: site.name,
+        alternateName: site.alternateName,
         description: site.description,
         url: site.url,
         email: site.email,
@@ -26,6 +27,7 @@ export function OrganizationSchema() {
           addressCountry: a.country,
         },
         sameAs: Object.values(site.social),
+        award: ['Pondy Open 2025: Gold, Men\'s Team', 'Pondy Open 2025: Gold, Women\'s Team', 'Pondy Open 2025: Silver, Master Men Individual'],
       }}
     />
   )

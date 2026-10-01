@@ -18,7 +18,8 @@
 - Nothing mid-build.
 
 ## Known Issues
-- All fees, schedules, coach names, testimonials, stats and legal text are **PLACEHOLDERS** (`shared/catalog.json`,
+- Verified facts (name, address, phones, Instagram, Pondy Open 2025 medals) are in; see docs/CLIENT_INFO.md.
+  Fees, schedules, coach names, facility details and legal text are still **PLACEHOLDERS** (`shared/catalog.json`,
   `frontend/src/content/site.ts`, `frontend/src/pages/Legal.tsx`). Confirm with the club before launch.
 - Gallery and coach photos are placeholders. Real images need hosting (Cloudinary) and an admin upload screen.
 - The site renders on the client side (Vite). For stronger SEO, add build-time prerendering (see DECISIONS.md).
