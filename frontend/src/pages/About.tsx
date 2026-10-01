@@ -2,6 +2,7 @@ import { Seo } from '../components/seo/Seo'
 import { PageHeader } from '../components/layout/PageHeader'
 import { Section } from '../components/common/Section'
 import { Button } from '../components/common/Button'
+import { benefits } from '../content/site'
 
 const values = [
   { t: 'Safety', d: 'Every session is supervised, every shooter is briefed, and the rules are never bent.' },
@@ -43,6 +44,13 @@ export default function About() {
             ))}
           </div>
         </div>
+      </Section>
+      <Section eyebrow="Why shooting" title="More than a sport">
+        <ul className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+          {benefits.map((b) => (
+            <li key={b} className="flex gap-3 rounded-xl border border-line bg-ink-2 p-5 text-mute"><span className="text-gold">◎</span>{b}</li>
+          ))}
+        </ul>
       </Section>
       <Section eyebrow="Our mission" title="Precision. Discipline. Champions." className="bg-ink-2">
         <p className="max-w-3xl text-mute">

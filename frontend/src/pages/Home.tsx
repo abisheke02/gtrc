@@ -26,16 +26,20 @@ export default function Home() {
               <Button to="/programs" variant="outline">View Programmes</Button>
             </div>
           </div>
-          <div className="relative mx-auto hidden aspect-square w-full max-w-sm lg:block" aria-hidden>
-            {[100, 80, 60, 40, 20].map((s, i) => (
-              <div
-                key={s}
-                className={`absolute rounded-full border-2 ${i % 2 ? 'border-gold/40' : 'border-gold/70'}`}
-                style={{ inset: `${(100 - s) / 2}%` }}
-              />
-            ))}
-            <div className="absolute inset-[46%] rounded-full bg-gold" />
-          </div>
+          {site.heroImage ? (
+            <img src={site.heroImage} alt="Shooter training at Golden Trigger Rifle Club" className="hidden aspect-[4/5] w-full rounded-xl border border-line object-cover lg:block" />
+          ) : (
+            <div className="relative mx-auto hidden aspect-square w-full max-w-sm lg:block" aria-hidden>
+              {[100, 80, 60, 40, 20].map((s, i) => (
+                <div
+                  key={s}
+                  className={`absolute rounded-full border-2 ${i % 2 ? 'border-gold/40' : 'border-gold/70'}`}
+                  style={{ inset: `${(100 - s) / 2}%` }}
+                />
+              ))}
+              <div className="absolute inset-[46%] rounded-full bg-gold" />
+            </div>
+          )}
         </div>
         <div className="border-t border-line bg-ink-2/60">
           <dl className="container-x grid grid-cols-2 gap-6 py-8 sm:grid-cols-4">
@@ -93,6 +97,16 @@ export default function Home() {
           </div>
         </Section>
       )}
+
+      <Section className="!py-12">
+        <div className="flex flex-col items-start justify-between gap-4 rounded-xl border border-line bg-ink-2 p-6 sm:flex-row sm:items-center">
+          <div>
+            <p className="text-sm font-semibold uppercase tracking-[0.2em] text-gold">Follow us</p>
+            <p className="mt-1 text-lg">Training updates, match results and photos on Instagram</p>
+          </div>
+          <Button href={site.social.instagram} variant="outline">@golden_trigger_shooting</Button>
+        </div>
+      </Section>
 
       <section className="border-t border-line bg-gold text-ink">
         <div className="container-x flex flex-col items-start justify-between gap-6 py-12 sm:flex-row sm:items-center">

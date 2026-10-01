@@ -2,6 +2,7 @@ import { Seo } from '../components/seo/Seo'
 import { PageHeader } from '../components/layout/PageHeader'
 import { Section } from '../components/common/Section'
 import { facilities, site } from '../content/site'
+import { Photo } from '../components/common/Photo'
 
 export default function Facilities() {
   return (
@@ -11,9 +12,12 @@ export default function Facilities() {
       <Section>
         <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
           {facilities.map((f) => (
-            <div key={f.title} className="rounded-xl border border-line bg-ink-2 p-6">
-              <h2 className="text-lg text-gold">{f.title}</h2>
-              <p className="mt-2 text-sm text-mute">{f.text}</p>
+            <div key={f.title} className="overflow-hidden rounded-xl border border-line bg-ink-2">
+              {f.image && <div className="aspect-video"><Photo src={f.image} alt={f.title} /></div>}
+              <div className="p-6">
+                <h2 className="text-lg text-gold">{f.title}</h2>
+                <p className="mt-2 text-sm text-mute">{f.text}</p>
+              </div>
             </div>
           ))}
         </div>

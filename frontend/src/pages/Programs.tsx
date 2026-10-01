@@ -4,6 +4,7 @@ import { Section } from '../components/common/Section'
 import { Button } from '../components/common/Button'
 import { useCatalog } from '../hooks/useCatalog'
 import { inr } from '../utils/format'
+import { disciplines, pathway } from '../content/site'
 
 export default function Programs() {
   const { programs } = useCatalog()
@@ -11,7 +12,17 @@ export default function Programs() {
     <>
       <Seo title="Training Programmes" path="/programs" description="10m Air Rifle and Air Pistol training programmes in Chennai for beginners, children and competitive shooters. Book online." />
       <PageHeader eyebrow="Programmes" title="Training programmes" intro="Every programme includes a safety certification, club equipment for beginners, and small batches so the coach can watch every shot." />
-      <Section>
+      <Section eyebrow="The disciplines" title="Olympic precision sport">
+        <div className="grid gap-6 md:grid-cols-2">
+          {disciplines.map((d) => (
+            <div key={d.name} className="rounded-xl border border-line bg-ink-2 p-6">
+              <h2 className="text-2xl text-gold">{d.name}</h2>
+              <p className="mt-3 text-mute">{d.text}</p>
+            </div>
+          ))}
+        </div>
+      </Section>
+      <Section eyebrow="Courses & fees" title="Choose a programme" className="!pt-0">
         <div className="space-y-6">
           {programs.map((p) => (
             <article key={p.slug} className="grid gap-6 rounded-xl border border-line bg-ink-2 p-6 md:grid-cols-[1fr_auto] md:items-center">
@@ -34,6 +45,17 @@ export default function Programs() {
             </article>
           ))}
         </div>
+      </Section>
+      <Section eyebrow="Your pathway" title="From first shot to nationals" className="bg-ink-2">
+        <ol className="grid gap-4 md:grid-cols-5">
+          {pathway.map((p, i) => (
+            <li key={p.step} className="rounded-xl border border-line bg-ink p-5">
+              <span className="font-display text-3xl text-gold">{String(i + 1).padStart(2, '0')}</span>
+              <h3 className="mt-2 text-lg">{p.step}</h3>
+              <p className="mt-2 text-sm text-mute">{p.text}</p>
+            </li>
+          ))}
+        </ol>
       </Section>
     </>
   )

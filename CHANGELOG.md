@@ -7,3 +7,4 @@
 - Built the admin panel: login, dashboard, bookings (filter + CSV), enquiries, programme/fee editor.
 - Built the Express + Prisma backend: catalog, enquiries, Razorpay order/verify/webhook, admin auth, audit log, email.
 - Applied verified web facts: academy name, Pondy Open 2025 medals (home stats, achievements, events, JSON-LD), old-site copy. Removed invented testimonials.
+- Added photo slots (hero, coaches, facilities, gallery), the disciplines/pathway/benefits sections, extra FAQs, an Instagram strip, and docs/CONTENT_GUIDE.md.

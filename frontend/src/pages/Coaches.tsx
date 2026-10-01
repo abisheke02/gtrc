@@ -2,6 +2,7 @@ import { Seo } from '../components/seo/Seo'
 import { PageHeader } from '../components/layout/PageHeader'
 import { Section } from '../components/common/Section'
 import { coaches } from '../content/site'
+import { Photo } from '../components/common/Photo'
 
 export default function Coaches() {
   return (
@@ -11,10 +12,8 @@ export default function Coaches() {
       <Section>
         <div className="grid gap-6 md:grid-cols-3">
           {coaches.map((c) => (
-            <article key={c.role} className="overflow-hidden rounded-xl border border-line bg-ink-2">
-              <div className="target-bg flex aspect-[4/3] items-center justify-center bg-ink-3 text-mute">
-                <span className="text-sm">Photo coming soon</span>
-              </div>
+            <article key={c.role + c.name} className="overflow-hidden rounded-xl border border-line bg-ink-2">
+              <div className="aspect-[4/3]"><Photo src={c.image} alt={c.name} label="Photo coming soon" /></div>
               <div className="p-6">
                 <h2 className="text-xl">{c.name}</h2>
                 <p className="text-sm text-gold">{c.role}</p>

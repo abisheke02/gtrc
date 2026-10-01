@@ -25,6 +25,8 @@
 - The site renders on the client side (Vite). For stronger SEO, add build-time prerendering (see DECISIONS.md).
 - `example.com` in sitemap.xml, robots.txt and VITE_SITE_URL must be replaced once the domain is chosen.
 
+- How to update text and photos: docs/CONTENT_GUIDE.md
+
 ## Next Steps
 1. Get the Razorpay **test** keys from the club and do a real test payment end to end.
 2. Collect logo, photos, real fees, coach details and timings, then update `site.ts` and `catalog.json`.

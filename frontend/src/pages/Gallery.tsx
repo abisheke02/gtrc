@@ -2,10 +2,8 @@ import { Seo } from '../components/seo/Seo'
 import { PageHeader } from '../components/layout/PageHeader'
 import { Section } from '../components/common/Section'
 import { Button } from '../components/common/Button'
-import { site } from '../content/site'
-
-// Replace with real photos (hosted on Cloudinary, managed from the admin panel).
-const placeholders = ['Range', 'Training', 'Junior batch', 'Match day', 'Medals', 'Coaching', 'Summer camp', 'Team', 'Equipment']
+import { Photo } from '../components/common/Photo'
+import { site, gallery } from '../content/site'
 
 export default function Gallery() {
   return (
@@ -14,9 +12,9 @@ export default function Gallery() {
       <PageHeader eyebrow="Gallery" title="Life at the range" intro="Training sessions, match days, camps and medal moments." />
       <Section>
         <div className="grid grid-cols-2 gap-3 sm:gap-4 md:grid-cols-3">
-          {placeholders.map((p, i) => (
-            <figure key={p} className={`target-bg flex items-end overflow-hidden rounded-lg border border-line bg-ink-2 p-4 ${i % 4 === 0 ? 'aspect-[4/5]' : 'aspect-square'}`}>
-              <figcaption className="text-sm text-mute">{p}</figcaption>
+          {gallery.map((g, i) => (
+            <figure key={g.caption + i} className="aspect-square overflow-hidden rounded-lg border border-line">
+              <Photo src={g.image} alt={g.caption} />
             </figure>
           ))}
         </div>
