@@ -6,7 +6,7 @@ services:
     name: gtrc-api
     runtime: node
     rootDir: backend
-    plan: starter # the free plan sleeps when idle; payments and webhooks need an always-on service
+    plan: free # sleeps after ~15 min idle (first request is slow); upgrade to starter before taking real payments
     healthCheckPath: /api/health
     # prisma and typescript are devDependencies, so install them for the build.
     buildCommand: npm install --include=dev && npx prisma generate && npm run build
