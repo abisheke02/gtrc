@@ -21,7 +21,7 @@ export default function Enquiries() {
   return (
     <div>
       <h1 className="mb-6 text-3xl">Enquiries</h1>
-      {error && <p className="mb-4 text-red-300">{error}</p>}
+      {error && <p className="mb-4 text-red-300 light:text-red-700">{error}</p>}
       {!rows && !error && <p className="text-mute">Loading…</p>}
       {rows?.length === 0 && <p className="text-mute">No enquiries yet.</p>}
       <div className="space-y-4">

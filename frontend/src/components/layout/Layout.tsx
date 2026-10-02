@@ -8,7 +8,9 @@ import { useReveal } from '../../hooks/useReveal'
 
 export function Layout() {
   const { pathname } = useLocation()
-  useEffect(() => window.scrollTo(0, 0), [pathname])
+  useEffect(() => {
+    window.scrollTo(0, 0)
+  }, [pathname])
   useReveal()
 
   return (

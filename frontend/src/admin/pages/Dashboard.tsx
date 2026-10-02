@@ -9,6 +9,8 @@ interface Stats {
   paidBookingsMonth: number
   pendingBookings: number
   newEnquiries: number
+  donationsMonth: number
+  donationsCountMonth: number
 }
 
 export default function Dashboard() {
@@ -16,7 +18,7 @@ export default function Dashboard() {
   const [error, setError] = useState('')
   useEffect(() => { api<Stats>('/admin/stats').then(setStats).catch((e) => setError(e.message)) }, [])
 
-  if (error) return <p className="text-red-300">{error}</p>
+  if (error) return <p className="text-red-300 light:text-red-700">{error}</p>
   if (!stats) return <p className="text-mute">Loading…</p>
 
   const cards = [
@@ -24,12 +26,13 @@ export default function Dashboard() {
     { label: 'Revenue this month', value: inr(stats.revenueMonth) },
     { label: 'Paid bookings this month', value: stats.paidBookingsMonth, to: '/admin/bookings?status=PAID' },
     { label: 'Pending payments', value: stats.pendingBookings, to: '/admin/bookings?status=PENDING' },
+    { label: `Donations this month (${stats.donationsCountMonth})`, value: inr(stats.donationsMonth), to: '/admin/donations?status=PAID' },
     { label: 'New enquiries', value: stats.newEnquiries, to: '/admin/enquiries' },
   ]
   return (
     <div>
       <h1 className="mb-6 text-3xl">Dashboard</h1>
-      <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-5">
+      <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-6">
         {cards.map((c) => {
           const inner = (
             <>

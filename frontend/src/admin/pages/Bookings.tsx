@@ -47,7 +47,7 @@ export default function Bookings() {
           <a href={`${import.meta.env.VITE_API_URL ?? ''}/api/admin/bookings.csv${status ? `?status=${status}` : ''}`} className="whitespace-nowrap text-sm text-gold hover:underline">Export CSV</a>
         </div>
       </div>
-      {error && <p className="text-red-300">{error}</p>}
+      {error && <p className="text-red-300 light:text-red-700">{error}</p>}
       {!rows && !error && <p className="text-mute">Loading…</p>}
       {rows && rows.length === 0 && <p className="text-mute">No bookings yet.</p>}
       {rows && rows.length > 0 && (

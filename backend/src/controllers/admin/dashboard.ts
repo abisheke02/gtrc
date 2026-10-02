@@ -14,11 +14,12 @@ function istStartOf(unit: 'day' | 'month') {
 }
 
 export async function stats(_req: Request, res: Response) {
-  const [today, month, pendingBookings, newEnquiries] = await Promise.all([
+  const [today, month, pendingBookings, newEnquiries, donations] = await Promise.all([
     prisma.booking.aggregate({ _sum: { amountInr: true }, where: { status: 'PAID', paidAt: { gte: istStartOf('day') } } }),
     prisma.booking.aggregate({ _sum: { amountInr: true }, _count: true, where: { status: 'PAID', paidAt: { gte: istStartOf('month') } } }),
     prisma.booking.count({ where: { status: 'PENDING' } }),
     prisma.enquiry.count({ where: { status: 'NEW' } }),
+    prisma.donation.aggregate({ _sum: { amountInr: true }, _count: true, where: { status: 'PAID', paidAt: { gte: istStartOf('month') } } }),
   ])
   res.json({
     revenueToday: today._sum.amountInr ?? 0,
@@ -26,6 +27,8 @@ export async function stats(_req: Request, res: Response) {
     paidBookingsMonth: month._count,
     pendingBookings,
     newEnquiries,
+    donationsMonth: donations._sum.amountInr ?? 0,
+    donationsCountMonth: donations._count,
   })
 }
 
@@ -50,6 +53,20 @@ export async function exportBookingsCsv(req: Request, res: Response) {
   const csv = [cols.join(','), ...rows.map((r) => cols.map((c) => csvCell(r[c])).join(','))].join('\n')
   await audit(req, 'export', 'bookings', `Exported ${rows.length} bookings`)
   res.set({ 'Content-Type': 'text/csv; charset=utf-8', 'Content-Disposition': `attachment; filename="gtrc-bookings-${new Date().toISOString().slice(0, 10)}.csv"` }).send(csv)
+}
+
+export async function listDonations(req: Request, res: Response) {
+  const status = statusFilter.parse(req.query.status || undefined)
+  res.json({ donations: await prisma.donation.findMany({ where: { status }, orderBy: { createdAt: 'desc' }, take: 500 }) })
+}
+
+export async function exportDonationsCsv(req: Request, res: Response) {
+  const status = statusFilter.parse(req.query.status || undefined)
+  const rows = await prisma.donation.findMany({ where: { status }, orderBy: { createdAt: 'desc' } })
+  const cols = ['id', 'createdAt', 'status', 'amountInr', 'purpose', 'name', 'phone', 'email', 'pan', 'address', 'anonymous', 'razorpayPaymentId', 'paidAt'] as const
+  const csv = [cols.join(','), ...rows.map((r) => cols.map((c) => csvCell(r[c])).join(','))].join('\n')
+  await audit(req, 'export', 'donations', `Exported ${rows.length} donations`)
+  res.set({ 'Content-Type': 'text/csv; charset=utf-8', 'Content-Disposition': `attachment; filename="gtrc-donations-${new Date().toISOString().slice(0, 10)}.csv"` }).send(csv)
 }
 
 export async function listEnquiries(_req: Request, res: Response) {

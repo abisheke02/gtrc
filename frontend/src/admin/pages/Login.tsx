@@ -34,7 +34,7 @@ export default function Login() {
         <h1 className="text-center text-2xl">Admin login</h1>
         <div><label className="label" htmlFor="email">Email</label><input id="email" name="email" type="email" required className="input" autoComplete="username" /></div>
         <div><label className="label" htmlFor="password">Password</label><input id="password" name="password" type="password" required className="input" autoComplete="current-password" /></div>
-        {error && <p className="text-sm text-red-300" role="alert">{error}</p>}
+        {error && <p className="text-sm text-red-300 light:text-red-700" role="alert">{error}</p>}
         <Button type="submit" disabled={busy} className="w-full">{busy ? 'Signing in…' : 'Sign in'}</Button>
       </form>
     </div>

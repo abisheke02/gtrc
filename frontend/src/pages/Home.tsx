@@ -3,7 +3,7 @@ import { Button } from '../components/common/Button'
 import { Section } from '../components/common/Section'
 import { PriceCard } from '../components/common/PriceCard'
 import { CountUp } from '../components/common/CountUp'
-import { HeroTarget } from '../components/sections/HeroTarget'
+import { RangeLane } from '../components/sections/RangeLane'
 import { Ticker } from '../components/sections/Ticker'
 import { site, stats, testimonials, facilities, achievements } from '../content/site'
 import { useCatalog } from '../hooks/useCatalog'
@@ -14,7 +14,7 @@ export default function Home() {
     <>
       <Seo title="Home" path="/" />
       <section className="target-bg relative overflow-hidden border-b border-line">
-        <div className="container-x grid items-center gap-10 py-16 sm:py-24 lg:grid-cols-[1.2fr_1fr]">
+        <div className="container-x grid items-center gap-10 py-16 sm:py-24 lg:grid-cols-[1fr_1fr]">
           <div>
             <p className="rise mb-4 text-sm font-semibold uppercase tracking-[0.25em] text-gold">Gerugambakkam · Chennai</p>
             <h1 className="text-5xl leading-[1.05] sm:text-6xl lg:text-7xl">
@@ -33,9 +33,7 @@ export default function Home() {
           {site.heroImage ? (
             <img src={site.heroImage} alt="Shooter training at Golden Trigger Rifle Club" className="hidden aspect-[4/5] w-full rounded-xl border border-line object-cover lg:block" />
           ) : (
-            <div className="relative mx-auto aspect-square w-full max-w-[240px] sm:max-w-xs lg:max-w-md">
-              <HeroTarget />
-            </div>
+            <RangeLane />
           )}
         </div>
         <Ticker />
@@ -106,15 +104,15 @@ export default function Home() {
         </div>
       </Section>
 
-      <section className="border-t border-line bg-gold text-ink">
+      <section className="border-t border-line bg-gold text-on-gold">
         <div className="container-x flex flex-col items-start justify-between gap-6 py-12 sm:flex-row sm:items-center">
           <div>
             <h2 className="text-3xl">Ready for your first shot?</h2>
-            <p className="mt-1 text-ink/80">Book a 60-minute trial session with a certified coach.</p>
+            <p className="mt-1 text-on-gold/80">Book a 60-minute trial session with a certified coach.</p>
           </div>
           <div className="flex flex-wrap gap-3">
-            <Button to="/book?type=PROGRAM&item=trial-session" className="!bg-ink !text-gold hover:!bg-ink-3">Book Trial</Button>
-            <Button href={`tel:${site.phones[0].replace(/\s/g, '')}`} className="!border !border-ink !bg-transparent !text-ink">Call Us</Button>
+            <Button to="/book?type=PROGRAM&item=trial-session" className="!bg-on-gold !text-gold hover:!opacity-90">Book Trial</Button>
+            <Button href={`tel:${site.phones[0].replace(/\s/g, '')}`} className="!border !border-on-gold !bg-transparent !text-on-gold">Call Us</Button>
           </div>
         </div>
       </section>

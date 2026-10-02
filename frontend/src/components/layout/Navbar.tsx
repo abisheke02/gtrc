@@ -2,6 +2,7 @@ import { useState } from 'react'
 import { Link, NavLink } from 'react-router-dom'
 import { nav, site } from '../../content/site'
 import { Button } from '../common/Button'
+import { ThemeToggle } from '../common/ThemeToggle'
 
 export function Logo() {
   return (
@@ -26,10 +27,13 @@ export function Navbar() {
         <Logo />
         <nav className="hidden items-center gap-6 lg:flex" aria-label="Main">
           {nav.slice(1).map((n) => <NavLink key={n.to} to={n.to} className={linkCls}>{n.label}</NavLink>)}
+          <ThemeToggle />
           <Button to="/book">Book Now</Button>
         </nav>
+        <div className="flex items-center gap-1 lg:hidden">
+        <ThemeToggle />
         <button
-          className="rounded p-2 text-paper lg:hidden"
+          className="rounded p-2 text-paper"
           onClick={() => setOpen(!open)}
           aria-expanded={open}
           aria-label="Toggle menu"
@@ -38,6 +42,7 @@ export function Navbar() {
             {open ? <path d="M6 6l12 12M18 6L6 18" /> : <path d="M4 7h16M4 12h16M4 17h16" />}
           </svg>
         </button>
+        </div>
       </div>
       {open && (
         <nav className="border-t border-line bg-ink-2 lg:hidden" aria-label="Mobile">

@@ -100,7 +100,7 @@ export default function Book() {
               <span>I agree to the <a href="/terms" target="_blank" className="text-gold underline">terms</a>, <a href="/refund-policy" target="_blank" className="text-gold underline">refund policy</a> and <a href="/safety-rules" target="_blank" className="text-gold underline">range safety rules</a>{isMinor && ', and I consent as parent/guardian'}.</span>
             </label>
 
-            {error && <p className="rounded-md border border-red-500/40 bg-red-500/10 p-3 text-sm text-red-300" role="alert">{error}</p>}
+            {error && <p className="rounded-md border border-red-500/40 bg-red-500/10 p-3 text-sm text-red-300 light:text-red-700" role="alert">{error}</p>}
             <Button type="submit" disabled={busy || !choice} className="w-full">
               {busy ? 'Processing…' : `Pay ${choice ? inr(choice.price) : ''} securely`}
             </Button>

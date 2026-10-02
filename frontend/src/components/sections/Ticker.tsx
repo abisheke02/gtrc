@@ -12,11 +12,11 @@ const items = [
 export function Ticker() {
   const row = items.map((t) => (
     <span key={t} className="flex items-center gap-6 px-6 font-display text-sm uppercase tracking-[0.2em]">
-      {t}<span className="text-ink/50">◎</span>
+      {t}<span className="text-on-gold/50">◎</span>
     </span>
   ))
   return (
-    <div className="overflow-hidden border-y border-gold bg-gold py-3 text-ink" aria-label="Achievements">
+    <div className="overflow-hidden border-y border-gold bg-gold py-3 text-on-gold" aria-label="Achievements">
       <div className="marquee" aria-hidden>{row}{row}</div>
     </div>
   )

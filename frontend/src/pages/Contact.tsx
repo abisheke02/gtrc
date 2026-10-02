@@ -69,8 +69,8 @@ export default function Contact() {
             </div>
             <div><label className="label" htmlFor="message">Message</label><textarea id="message" name="message" rows={4} required className="input" /></div>
             <Button type="submit" disabled={status === 'sending'} className="w-full">{status === 'sending' ? 'Sending…' : 'Send message'}</Button>
-            {status === 'sent' && <p className="text-sm text-green-400" role="status">Thanks! We will get back to you within one working day.</p>}
-            {status === 'error' && <p className="text-sm text-red-400" role="alert">{error}. You can also call us directly.</p>}
+            {status === 'sent' && <p className="text-sm text-green-400 light:text-green-700" role="status">Thanks! We will get back to you within one working day.</p>}
+            {status === 'error' && <p className="text-sm text-red-400 light:text-red-700" role="alert">{error}. You can also call us directly.</p>}
           </form>
         </div>
       </Section>

@@ -49,6 +49,7 @@ export const nav = [
   { to: '/facilities', label: 'Facilities' },
   { to: '/events', label: 'Events' },
   { to: '/gallery', label: 'Gallery' },
+  { to: '/donate', label: 'Donate' },
   { to: '/contact', label: 'Contact' },
 ]
 
@@ -155,3 +156,12 @@ export const faqs = [
   { q: 'Do you train for competitions?', a: 'Yes. Our shooters compete in club and open matches. At the Pondy Open 2025 our teams won gold in both the men\'s and women\'s team events.' },
   { q: 'Can I try before joining?', a: 'Yes. Book a Trial Session to shoot with a coach before choosing a programme.' },
 ]
+
+// ── Donations ────────────────────────────────────────────────────────────────
+// Purposes must match DONATION_PURPOSES in backend/src/controllers/payments.ts.
+export const donation = {
+  purposes: ['Where it is needed most', 'Junior shooter scholarships', 'Range & equipment upkeep', 'Competition travel & entry fees'],
+  presets: [500, 1000, 2500, 5000, 10000],
+  // PLACEHOLDER: set to false if the trust does not hold 80G registration; this hides the tax-receipt (PAN) fields.
+  taxReceipts: true,
+}

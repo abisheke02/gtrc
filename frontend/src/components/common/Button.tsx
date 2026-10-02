@@ -3,8 +3,8 @@ import type { ReactNode } from 'react'
 
 type Variant = 'gold' | 'outline' | 'ghost'
 const styles: Record<Variant, string> = {
-  gold: 'btn-shine bg-gold text-ink hover:bg-gold-2',
-  outline: 'border border-gold text-gold hover:bg-gold hover:text-ink',
+  gold: 'btn-shine bg-gold text-on-gold hover:bg-gold-2',
+  outline: 'border border-gold text-gold hover:bg-gold hover:text-on-gold',
   ghost: 'text-paper hover:text-gold',
 }
 const base =

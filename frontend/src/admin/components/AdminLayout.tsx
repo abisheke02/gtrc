@@ -5,6 +5,7 @@ import { Seo } from '../../components/seo/Seo'
 const links = [
   { to: '/admin', label: 'Dashboard', end: true },
   { to: '/admin/bookings', label: 'Bookings & Payments' },
+  { to: '/admin/donations', label: 'Donations' },
   { to: '/admin/enquiries', label: 'Enquiries' },
   { to: '/admin/catalog', label: 'Programmes & Fees' },
 ]

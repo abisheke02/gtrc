@@ -95,3 +95,32 @@ model AuditLog {
   ipAddress  String?
   createdAt  DateTime @default(now())
 }
+
+enum DonationStatus {
+  PENDING
+  PAID
+  FAILED
+  REFUNDED
+}
+
+/// Donations to the club's trust. PAN/address are only collected when the donor wants an 80G receipt.
+model Donation {
+  id                String         @id @default(cuid())
+  amountInr         Int
+  status            DonationStatus @default(PENDING)
+  purpose           String
+  name              String
+  email             String
+  phone             String
+  pan               String?
+  address           String?
+  message           String?
+  anonymous         Boolean        @default(false)
+  razorpayOrderId   String?        @unique
+  razorpayPaymentId String?
+  paidAt            DateTime?
+  createdAt         DateTime       @default(now())
+  updatedAt         DateTime       @updatedAt
+
+  @@index([status, createdAt])
+}

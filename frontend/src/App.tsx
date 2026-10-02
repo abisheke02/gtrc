@@ -11,6 +11,7 @@ import Facilities from './pages/Facilities'
 import Events from './pages/Events'
 import Gallery from './pages/Gallery'
 import Book from './pages/Book'
+import Donate from './pages/Donate'
 import Contact from './pages/Contact'
 import Legal from './pages/Legal'
 import PaymentResult from './pages/PaymentResult'
@@ -21,6 +22,7 @@ const AdminLayout = lazy(() => import('./admin/components/AdminLayout').then((m)
 const Login = lazy(() => import('./admin/pages/Login'))
 const Dashboard = lazy(() => import('./admin/pages/Dashboard'))
 const Bookings = lazy(() => import('./admin/pages/Bookings'))
+const Donations = lazy(() => import('./admin/pages/Donations'))
 const Enquiries = lazy(() => import('./admin/pages/Enquiries'))
 const CatalogEditor = lazy(() => import('./admin/pages/CatalogEditor'))
 
@@ -33,6 +35,7 @@ function AdminRoutes() {
           <Route element={<AdminLayout />}>
             <Route index element={<Dashboard />} />
             <Route path="bookings" element={<Bookings />} />
+            <Route path="donations" element={<Donations />} />
             <Route path="enquiries" element={<Enquiries />} />
             <Route path="catalog" element={<CatalogEditor />} />
           </Route>
@@ -56,6 +59,7 @@ export default function App() {
         <Route path="/events" element={<Events />} />
         <Route path="/gallery" element={<Gallery />} />
         <Route path="/book" element={<Book />} />
+        <Route path="/donate" element={<Donate />} />
         <Route path="/contact" element={<Contact />} />
         <Route path="/privacy" element={<Legal slug="privacy" />} />
         <Route path="/terms" element={<Legal slug="terms" />} />

@@ -28,8 +28,8 @@ export default function CatalogEditor() {
     <div>
       <h1 className="mb-2 text-3xl">Programmes & fees</h1>
       <p className="mb-6 text-sm text-mute">Changes go live on the website straight away. Prices are in rupees; online payments always use the price saved here.</p>
-      {msg && <p className="mb-4 text-sm text-green-300" role="status">{msg}</p>}
-      {error && <p className="mb-4 text-sm text-red-300" role="alert">{error}</p>}
+      {msg && <p className="mb-4 text-sm text-green-300 light:text-green-700" role="status">{msg}</p>}
+      {error && <p className="mb-4 text-sm text-red-300 light:text-red-700" role="alert">{error}</p>}
       {!rows && !error && <p className="text-mute">Loading…</p>}
       {rows && (
         <div className="overflow-x-auto rounded-xl border border-line">
