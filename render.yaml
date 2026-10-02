@@ -1,0 +1,35 @@
+# Render Blueprint for the GTRC backend (Express + Prisma + Postgres).
+# The frontend is hosted on Vercel (frontend/vercel.json); this file only describes the API.
+# Secrets marked `sync: false` are asked for in the Render dashboard on first deploy and never stored in git.
+services:
+  - type: web
+    name: gtrc-api
+    runtime: node
+    rootDir: backend
+    plan: starter # the free plan sleeps when idle; payments and webhooks need an always-on service
+    healthCheckPath: /api/health
+    # prisma and typescript are devDependencies, so install them for the build.
+    buildCommand: npm install --include=dev && npx prisma generate && npm run build
+    # Applies pending migrations (including donations) before the server starts.
+    startCommand: npm run db:deploy && npm start
+    envVars:
+      - key: NODE_ENV
+        value: production
+      - key: NODE_VERSION
+        value: 22
+      - key: JWT_SECRET
+        generateValue: true
+      - key: DATABASE_URL # Postgres connection string: Render Postgres or Neon
+        sync: false
+      - key: CORS_ORIGIN # your Vercel domain, e.g. https://gtrc.vercel.app (comma-separate several)
+        sync: false
+      - key: RAZORPAY_KEY_ID
+        sync: false
+      - key: RAZORPAY_KEY_SECRET
+        sync: false
+      - key: RAZORPAY_WEBHOOK_SECRET
+        sync: false
+      - key: SMTP_URL
+        sync: false
+      - key: CONTACT_EMAIL
+        value: goldentriggerriffleclub@gmail.com
